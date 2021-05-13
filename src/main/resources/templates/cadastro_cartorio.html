@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author"
+	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.83.1">
+<title>Teste Docket</title>
+
+<link rel="canonical"
+	href="https://getbootstrap.com/docs/5.0/examples/features/">
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+</head>
+<body>
+	<main>
+		<div class="container px-4 py-5" id="featured-3">
+			<h2 class="pb-2 border-bottom">Cadastro de Cartório</h2>
+			<form th:object="${cartorio}" action="/cartorio/novo" method="POST">
+				<div class="mb-3">
+					<label for="nomeCartorio" class="form-label">Nome do
+						Cartório</label>
+				<input field="*{name}" type="text" class="form-control" id="nomeCartorio" name="name"/>
+				</div>
+				<div class="mb-3">
+					<label for="enderecoCartorio" class="form-label">Endereço
+						do Cartório</label>	
+					<input field="*{address}" type="text" class="form-control "
+						id="enderecoCartorio" name="address"/>
+				</div>
+				<div class="mb-3">
+					<label for="certidoesCartorio" class="form-label">Quais
+						tipos de Certidões o cartório emite?</label> 
+					<select field="*{certificates}" class="form-select" aria-label="Default select" id="certidoesCartorio" name="certificates"/>
+						<option selected>Selecione os tipos de certidão</option>
+						<option 
+					        th:each="certidao : ${certidoes}" 
+					        th:value="${certidao.id}" 
+					        th:text="${certidao.nome}"></option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-primary">Cadastrar</button>
+			</form>
+		</div>
+	</main>
+</body>
+</html>

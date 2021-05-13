@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author"
+	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.83.1">
+<title>Teste Docket</title>
+
+<link rel="canonical"
+	href="https://getbootstrap.com/docs/5.0/examples/features/">
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+</head>
+<body>
+	<main>
+		<div class="container px-4 py-5" id="featured-3">
+			<h2 class="pb-2 border-bottom">Lista de Cartórios</h2>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Nome</th>
+						<th scope="col">Endereço</th>
+						<th scope="col">Certidões</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cartorio : ${cartorios}">
+						<th scope="row"><span th:text="${cartorio.id}">0</span></th>
+						<td><span th:text="${cartorio.name}">0</span></td>
+						<td><span th:text="${cartorio.address}">0</span></td>
+						<td><span th:text="${cartorio.certificates}">0</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<a href="/cartorio/cadastro" class="btn btn-primary">Cadastrar</a>
+			<a href="/" class="btn btn-primary">Voltar</a>
+		</div>
+	</main>
+</body>
+</html>
